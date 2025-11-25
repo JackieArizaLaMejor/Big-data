@@ -150,4 +150,92 @@ function predictTip() {
     propinaChart.update();
     
 }
+// ===================== MAPA LEAFLET – HEATMAP NYC TAXI =====================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const mapElement = document.getElementById("nycMap");
+    if (!mapElement) return; // por si la sección no existe
+
+    // Centro aproximado de Manhattan
+    const map = L.map("nycMap").setView([40.7549, -73.9840], 11);
+
+    // Capa base (OpenStreetMap)
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 18,
+        attribution: "&copy; OpenStreetMap"
+    }).addTo(map);
+
+    // Datos agregados simulados a partir de NYC Yellow Taxi 2016
+    // (zonas con más viajes, más propinas, densidad por hora)
+    const taxiZones = [
+        {
+            name: "Midtown Manhattan",
+            coords: [40.7549, -73.9840],
+            trips: 240000,
+            tipRate: 0.89,
+            peakHour: "18:00–21:00",
+            tripsPerHour: 3200
+        },
+        {
+            name: "Upper East Side",
+            coords: [40.7736, -73.9566],
+            trips: 180000,
+            tipRate: 0.82,
+            peakHour: "17:00–20:00",
+            tripsPerHour: 2100
+        },
+        {
+            name: "SoHo / Downtown",
+            coords: [40.7233, -74.0030],
+            trips: 150000,
+            tipRate: 0.75,
+            peakHour: "20:00–23:00",
+            tripsPerHour: 1900
+        },
+        {
+            name: "JFK Airport",
+            coords: [40.6440, -73.7821],
+            trips: 120000,
+            tipRate: 0.78,
+            peakHour: "16:00–22:00",
+            tripsPerHour: 1600
+        },
+        {
+            name: "Brooklyn (Williamsburg)",
+            coords: [40.7081, -73.9571],
+            trips: 90000,
+            tipRate: 0.70,
+            peakHour: "19:00–23:00",
+            tripsPerHour: 1300
+        }
+    ];
+
+    // Escala de color según número de viajes (densidad)
+    function getColor(trips) {
+        if (trips > 200000) return "#ef4444";    // alta
+        if (trips > 120000) return "#f97316";    // media
+        return "#22c55e";                        // baja
+    }
+
+    taxiZones.forEach(z => {
+        const color = getColor(z.trips);
+
+        L.circleMarker(z.coords, {
+            radius: 12,
+            color: "white",
+            weight: 1,
+            fillColor: color,
+            fillOpacity: 0.9
+        })
+        .addTo(map)
+        .bindPopup(`
+            <strong>${z.name}</strong><br>
+            Viajes totales: ${z.trips.toLocaleString()}<br>
+            Tasa de propina: ${(z.tipRate * 100).toFixed(1)}%<br>
+            Densidad aprox.: ${z.tripsPerHour.toLocaleString()} viajes/hora<br>
+            Hora pico: ${z.peakHour}
+        `);
+    });
+});
+
 

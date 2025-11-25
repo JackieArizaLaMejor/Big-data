@@ -8,6 +8,11 @@
 
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+
 </head>
 
 <body>
@@ -103,24 +108,23 @@
                         <canvas id="chartHora"></canvas>
                     </article>
 
-                    <article class="card map-card">
-                        <header class="card-header">
-                            <h3>Heatmap de actividad</h3>
-                            <span class="badge">NYC 2016</span>
-                        </header>
-                        <div class="map-body">
-                            <div class="map-grid"></div>
-                            <div class="map-taxi" style="top:22%; left:40%;">🚕</div>
-                            <div class="map-taxi" style="top:60%; left:20%;">🚕</div>
-                            <div class="map-taxi" style="top:45%; left:65%;">🚕</div>
-                            <div class="map-taxi" style="top:70%; left:55%;">🚕</div>
-                            <div class="map-legend">
-                                <span class="dot high"></span> Alta demanda
-                                <span class="dot medium"></span> Media
-                                <span class="dot low"></span> Baja
-                            </div>
-                        </div>
-                    </article>
+<article class="card map-card">
+    <header class="card-header">
+        <h3>Heatmap de actividad</h3>
+        <span class="badge">NYC 2016</span>
+    </header>
+
+    <!-- Mapa real con Leaflet -->
+    <div id="nycMap" class="map-leaflet"></div>
+
+    <div class="map-legend-leaflet">
+        <strong>Densidad de viajes</strong>
+        <div><span class="dot high"></span> Alta</div>
+        <div><span class="dot medium"></span> Media</div>
+        <div><span class="dot low"></span> Baja</div>
+    </div>
+</article>
+
                 </div>
 
                 <!-- COLUMNA LATERAL -->
@@ -237,6 +241,10 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
 </body>
 
 </html>
