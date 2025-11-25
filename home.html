@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>NYC Taxi Analytics – Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <!-- FONDO -->
+    <div class="bg-orbit"></div>
+    <div class="bg-gradient"></div>
+
+    <!-- NAV SUPERIOR -->
+    <header class="top-nav">
+        <div class="brand">
+            <div class="brand-logo">🚕</div>
+            <div class="brand-text">
+                <span class="brand-title">NYC Taxi Analytics</span>
+                <span class="brand-sub">Proyecto Big Data · Yellow Taxi 2016</span>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#intro">Inicio</a>
+            <a href="#features">Características</a>
+            <a href="#workflow">Flujo ETL</a>
+            <a href="#team">Equipo</a>
+            <a href="Taxis.html" class="nav-btn">Ir al Dashboard</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="intro">
+        <div class="hero-left">
+            <h1 class="hero-title">
+                Análisis inteligente de <span class="highlight">viajes en taxi</span> en Nueva York.
+            </h1>
+            <p class="hero-subtitle">
+                Exploramos más de 1 millón de viajes del dataset 
+                <strong>NYC Yellow Taxi 2016</strong> para descubrir patrones, 
+                predecir propinas y visualizar el comportamiento de la ciudad 
+                usando técnicas de Big Data.
+            </p>
+
+            <div class="hero-actions">
+                <a href="Taxis.html" class="cta-primary">🌐 Entrar al Dashboard</a>
+                <button class="cta-secondary" id="scrollToFeatures">Ver qué hace el sistema</button>
+            </div>
+
+            <div class="hero-metrics">
+                <div class="metric">
+                    <span class="metric-number" data-target="1000000">0</span>
+                    <span class="metric-label">Viajes analizados</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-number" data-target="5">0</span>
+                    <span class="metric-label">Módulos visuales</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-number" data-target="3">0</span>
+                    <span class="metric-label">Integrantes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="hero-card glass hero-dashboard-card">
+                <div class="hero-card-header">
+                    <span>NYC Dashboard</span>
+                    <span class="dot green"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot red"></span>
+                </div>
+                <div class="hero-card-body">
+                    <div class="hero-mini-chart hero-mini-chart--line"></div>
+                    <div class="hero-mini-chart hero-mini-chart--bars"></div>
+                    <div class="hero-mini-chart hero-mini-chart--pie"></div>
+                </div>
+            </div>
+
+            <!-- Taxis flotantes -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3097/3097144.png" class="taxi taxi-1" alt="Taxi">
+            <img src="https://cdn-icons-png.flaticon.com/512/3097/3097133.png" class="taxi taxi-2" alt="Taxi">
+            <img src="https://cdn-icons-png.flaticon.com/512/3097/3097136.png" class="taxi taxi-3" alt="Taxi">
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+        <h2 class="section-title">¿Qué ofrece NYC Taxi Analytics?</h2>
+        <p class="section-subtitle">
+            Integración de análisis exploratorio, modelos de clasificación y visualizaciones interactivas.
+        </p>
+
+        <div class="card-grid">
+            <article class="info-card glass reveal">
+                <h3>📊 Exploración de Datos</h3>
+                <p>
+                    Panel con métricas generales: total de viajes, tarifa promedio, distancia promedio 
+                    y comportamiento por hora del día.
+                </p>
+            </article>
+
+            <article class="info-card glass reveal">
+                <h3>🧠 Clasificación de Propinas</h3>
+                <p>
+                    Simulación de un modelo de clasificación que estima la probabilidad de que un viaje 
+                    deje propina, usando distancia, hora y método de pago.
+                </p>
+            </article>
+
+            <article class="info-card glass reveal">
+                <h3>🗺️ Mapa de Actividad</h3>
+                <p>
+                    Heatmap de zonas con mayor densidad de viajes y mejor comportamiento de propinas, 
+                    usando Leaflet y datos agregados.
+                </p>
+            </article>
+
+            <article class="info-card glass reveal">
+                <h3>⚙️ ETL y Big Data</h3>
+                <p>
+                    Flujo completo de limpieza, transformación y carga de datos masivos usando 
+                    técnicas de procesamiento distribuido.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- FLUJO ETL -->
+    <section class="section" id="workflow">
+        <h2 class="section-title">Flujo del proyecto</h2>
+        <p class="section-subtitle">
+            Desde el dataset crudo hasta el dashboard interactivo.
+        </p>
+
+        <div class="timeline">
+            <div class="timeline-step reveal">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Extracción</h4>
+                    <p>Carga del dataset NYC Yellow Taxi 2016 con más de 5.000 registros (en la práctica, millones).</p>
+                </div>
+            </div>
+            <div class="timeline-step reveal">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Transformación</h4>
+                    <p>Limpieza de outliers, creación de variables como hora del día, duración y etiqueta de propina.</p>
+                </div>
+            </div>
+            <div class="timeline-step reveal">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Modelado</h4>
+                    <p>Entrenamiento de un modelo de clasificación para predecir probabilidad de propina en cada viaje.</p>
+                </div>
+            </div>
+            <div class="timeline-step reveal">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Visualización</h4>
+                    <p>Integración del modelo y los datos en un dashboard web con gráficas, mapas y simulador.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO (OPCIONAL, PUEDES AJUSTAR NOMBRES) -->
+    <section class="section" id="team">
+        <h2 class="section-title">Equipo del proyecto</h2>
+        <p class="section-subtitle">
+            Estudiantes responsables del diseño, implementación y análisis del sistema.
+        </p>
+
+        <div class="team-grid">
+            <div class="team-card glass reveal">
+                <div class="avatar-circle">Y</div>
+                <h4>Yakelin</h4>
+                <p>Arquitectura del dashboard, experiencia de usuario, documentación, simulación del modelo de propinas.</p>
+            </div>
+            <div class="team-card glass reveal">
+                <div class="avatar-circle">S</div>
+                <h4>Samuel</h4>
+                <p>Procesamiento de datos, ETL y exploración inicial del dataset, documentación, mapas interactivos.</p>
+            </div>
+            <div class="team-card glass reveal">
+                <div class="avatar-circle">D</div>
+                <h4>Danna</h4>
+                <p>Análisis estadístico, interpretación de resultados, apoyo en visualizaciones, documentación, Integración web.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section section-cta">
+        <div class="cta-box glass reveal">
+            <h2>¿Listo para ver el sistema en acción?</h2>
+            <p>
+                Explora el dashboard completo con gráficas, mapas y simulación de clasificación aplicada 
+                al dataset NYC Yellow Taxi 2016.
+            </p><br>
+            <a href="Taxis.html" class="cta-primary big">Ir al Dashboard Interactivo</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        © 2025 · NYC Taxi Analytics · Proyecto académico de Big Data
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>
